@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>Excercise 7.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+.s5 { color: #5f826b; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Excercise 7.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">thesocialnetwork</span>
+
+<span class="s1">import android</span><span class="s2">.</span><span class="s1">icu</span><span class="s2">.</span><span class="s1">text</span><span class="s2">.</span><span class="s1">ListFormatter</span><span class="s2">.</span><span class="s1">Width</span>
+
+<span class="s1">enum </span><span class="s0">class </span><span class="s1">brand </span><span class="s2">{</span>
+    <span class="s1">Buggati</span><span class="s2">,</span>
+    <span class="s1">Mercedez</span><span class="s2">,</span>
+    <span class="s1">Bmw</span><span class="s2">,</span>
+    <span class="s1">Ferrari</span><span class="s2">,</span>
+    <span class="s1">Mazda</span><span class="s2">,</span>
+    <span class="s1">Paganni</span><span class="s2">,</span>
+    <span class="s1">Uknown</span><span class="s2">,</span>
+
+<span class="s2">}</span>
+
+<span class="s1">enum </span><span class="s0">class </span><span class="s1">engine </span><span class="s2">{</span>
+    <span class="s1">One</span><span class="s2">,</span>
+    <span class="s1">Two</span><span class="s2">,</span>
+    <span class="s1">Three</span><span class="s2">,</span>
+    <span class="s1">Four</span><span class="s2">,</span>
+    <span class="s1">Five</span><span class="s2">,</span>
+    <span class="s1">Six</span><span class="s2">,</span>
+
+<span class="s2">}</span>
+<span class="s1">enum </span><span class="s0">class </span><span class="s1">color</span><span class="s2">{</span>
+    <span class="s1">Red</span><span class="s2">,</span>
+    <span class="s1">White</span><span class="s2">,</span>
+    <span class="s1">Black</span><span class="s2">,</span>
+    <span class="s1">Purple</span><span class="s2">,</span>
+    <span class="s1">Pink</span><span class="s2">,</span>
+    <span class="s1">Orange</span><span class="s2">,</span>
+    <span class="s1">Yellow</span><span class="s2">,</span>
+    <span class="s1">Cion</span><span class="s2">,</span>
+    <span class="s1">Blue</span><span class="s2">,</span>
+    <span class="s1">Green</span><span class="s2">,</span>
+    <span class="s1">Uknown</span><span class="s2">,</span>
+
+<span class="s2">}</span>
+<span class="s1">open </span><span class="s0">class </span><span class="s1">Car</span><span class="s2">{</span>
+    <span class="s0">var </span><span class="s1">brand: Brand </span><span class="s2">= </span><span class="s1">Brand</span><span class="s2">.</span><span class="s1">Uknown</span>
+    <span class="s1">open </span><span class="s0">val </span><span class="s1">height: Float</span><span class="s2">=</span><span class="s3">2000F</span>
+    <span class="s1">open </span><span class="s0">val </span><span class="s1">width: Float</span><span class="s2">=</span><span class="s3">100F</span>
+    <span class="s0">val </span><span class="s1">model: String </span><span class="s2">= </span><span class="s4">&quot;&quot;</span>
+    <span class="s0">val </span><span class="s1">color: Color </span><span class="s2">= </span><span class="s1">Color</span><span class="s2">.</span><span class="s1">Purple</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">toString</span><span class="s2">()</span><span class="s1">: String </span><span class="s2">{</span>
+        <span class="s0">return </span><span class="s4">&quot;Brand: </span><span class="s0">$</span><span class="s1">brand</span><span class="s4">, Height: </span><span class="s0">$</span><span class="s1">height</span><span class="s4">,:Model:</span><span class="s0">$</span><span class="s1">model</span><span class="s4">,Color:</span><span class="s0">$</span><span class="s1">color</span><span class="s4">&quot;</span>
+
+    <span class="s2">}</span>
+<span class="s2">}</span>
+<span class="s1">data </span><span class="s0">class </span><span class="s1">AutoCar</span><span class="s2">(</span>
+    <span class="s0">val </span><span class="s1">numberOfengine : Int</span><span class="s2">,</span>
+    <span class="s0">val </span><span class="s1">typeOfengine: Int</span><span class="s2">,</span>
+    <span class="s1">override </span><span class="s0">val </span><span class="s1">width: Float </span><span class="s2">= </span><span class="s3">0F</span><span class="s2">,</span>
+    <span class="s1">override </span><span class="s0">val </span><span class="s1">height: Float</span>
+
+<span class="s2">) </span><span class="s1">: Car </span><span class="s2">(</span><span class="s1">width </span><span class="s2">= </span><span class="s1">width</span><span class="s2">, </span><span class="s1">height </span><span class="s2">= </span><span class="s1">height</span><span class="s2">) {</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">toString</span><span class="s2">()</span><span class="s1">: String </span><span class="s2">{</span>
+        <span class="s0">return super</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">() + </span><span class="s4">&quot;,Number of Engine: </span><span class="s0">$</span><span class="s1">numberOfengine</span><span class="s4">, Type of Engine: </span><span class="s0">$</span><span class="s1">typeOfengine</span><span class="s4">&quot;</span>
+
+    <span class="s2">}</span>
+
+    <span class="s0">fun </span><span class="s1">describe</span><span class="s2">()</span><span class="s1">: String </span><span class="s2">{</span>
+        <span class="s0">return </span><span class="s4">&quot;Brand: </span><span class="s0">$</span><span class="s1">brand</span><span class="s4">, Number of Engine: </span><span class="s0">$</span><span class="s1">numberOfengine</span><span class="s4">&quot;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">fun </span><span class="s1">main</span><span class="s2">(){</span>
+    <span class="s0">val </span><span class="s1">Car </span><span class="s2">=</span><span class="s1">AutoCar </span><span class="s2">(</span>
+        <span class="s1">width </span><span class="s2">= </span><span class="s3">100F</span><span class="s2">,</span>
+        <span class="s1">height </span><span class="s2">= </span><span class="s1">Float </span><span class="s2">,</span>
+        <span class="s1">numberOfengine </span><span class="s2">= </span><span class="s1">Int</span>
+    <span class="s2">)</span>
+<span class="s0">val </span><span class="s1">buggatti </span><span class="s2">= </span><span class="s1">AutoCar</span><span class="s2">(</span><span class="s1">numberOfengine </span><span class="s2">=</span><span class="s3">1</span><span class="s2">,</span><span class="s1">typeOfengine </span><span class="s2">=</span><span class="s3">2</span><span class="s2">, </span><span class="s1">height</span><span class="s2">= </span><span class="s3">200f</span><span class="s2">)</span>
+    <span class="s1">buggatti</span><span class="s2">.</span><span class="s1">brand</span><span class="s2">= </span><span class="s1">Brand</span><span class="s2">.</span><span class="s1">Buggati</span>
+    <span class="s1">buggatti</span><span class="s2">.</span><span class="s1">model </span><span class="s2">=</span><span class="s4">&quot;Buggati Ponifest&quot;</span>
+    <span class="s1">buggatti</span><span class="s2">.</span><span class="s1">color </span><span class="s2">= </span><span class="s1">Color</span><span class="s2">.</span><span class="s1">Black</span>
+    <span class="s1">buggatti</span><span class="s2">.</span><span class="s1">width </span><span class="s2">= </span><span class="s3">100F</span>
+
+    <span class="s1">println</span><span class="s2">(</span><span class="s1">buggatti</span><span class="s2">)</span>
+    <span class="s1">println</span><span class="s2">(</span><span class="s1">Car</span><span class="s2">)</span>
+
+
+<span class="s2">}</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="s5">/**</span>
+ <span class="s5">* Create a parent class with both constant and variable properties and two level classes, the last</span>
+ <span class="s5">* one has to be a data class</span>
+ <span class="s5">*</span>
+ <span class="s5">* 1.that means 3 hierarchy levels.</span>
+ <span class="s5">* 2.Use override</span>
+ <span class="s5">* 3. Use data class in the last level</span>
+ <span class="s5">* 4. Create custom objects of each level</span>
+ <span class="s5">* 5. (Optional) Use of arrays and enum classes</span></pre>
+</body>
+</html>
